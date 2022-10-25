@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;1,400;1,700&display=swap%27');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* start header */
+
+@media (max-width: 1400px){
+    .lap {
+        gap: 20px;
+    }
+}
+@media (min-width: 959px){
+    .tablet {
+        /* padding-left: 35px; */
+        padding-left: 45px;
+    }
+}
+@media (min-width: 731px){
+    .mobile {
+        padding-left:35px;
+    }
+} 
+@media (min-width: 959px){
+    .arrow {
+        padding-right:45px;
+    }
+}
+@media (min-width: 731px){
+    .mobile-arrow{
+        padding-right:35px;
+    }
+}
+
+/* end header */
+
+
+/* Home Page Carousel */
+
+[class*="-carousel"] .swiper-pagination {
+    max-width: 80px !important;
+    transform: none !important;
+ }
+
+[class*="-carousel"] .swiper-pagination .swiper-pagination-bullet {
+    background: #8D8F96;
+    opacity: 1;
+}
+[class*="-carousel"] .swiper-pagination .swiper-pagination-bullet-active {
+    background: #7BF0AC;
+}
+
+[class*="-carousel"] .swiper-button-disabled[role=button] {
+	opacity: 0.6 !important;
+}
+
+/* end of Home Page Carousel */
+
+
+/* start leaflet map */
+.leaflet-popup-content {
+  margin: 0;
+  min-width: 330px;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0;
+  padding: 18px 5px 17px 20px;
+  height: 163px;
+}
+
+.leaflet-popup-tip {
+  display: none;
+}
+
+.popup-content_container {
+  font-size: 16px;
+}
+
+.leaflet-popup-close-button > span {
+  font-size: 32px;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+/* end of leaflet map */
+
+
+/* background images */
+#slider-wave {
+    background-image: url(../assets/swirl.svg);
+    background-repeat: no-repeat;
+    background-position-x: -195px;
+}
+
+#home-page-oval {
+    background: url(../assets/Oval-left.svg) left top no-repeat , url(../assets/Oval-right.svg) right bottom no-repeat;
+}
+
+
+#home-page-gradient {
+    background-image: url(../assets/gradient.svg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+}
+/* end background images */

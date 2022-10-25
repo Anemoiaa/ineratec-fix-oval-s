@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../dist/tailwind.css">
+    <title>Document</title>
+</head>
+
+<body id="fix" class="bg-black">
+    <!-- start header -->
+    <header id="header" class="flex lg:justify-between lg:mx-auto max-w-[1330px] text-white relative z-[15]">
+      <!-- left-div -->
+      <div
+          class="lg:mt-[30px] ml-5 lg:ml-0 mt-5 w-[131px] h-[60px] lg:w-[175px] lg:h-[80px]"
+      >
+          <img src="../assets/logos/ineratec-negativ-4.svg" alt="logo" class="" />
+      </div>
+      <!-- right div -->
+      <div class="hidden lg:flex flex-col place-items-end space-y-[54px]">
+          <!-- top div -->
+          <div class="flex flex-row ml-auto space-x-[50px] cursor-pointer">
+          <nav>
+              <ul
+              class="hidden lg:flex flex-row capitalize text-base font-bold space-x-[50px]"
+              >
+              <li><a href="#" class="hover:text-blue">Knowledge Base</a></li>
+              <li><a href="#" class="hover:text-blue">Investoren</a></li>
+              <li><a href="#" class="hover:text-blue">Unternehmen</a></li>
+              <li><a href="#" class="hover:text-blue">Karriere </a></li>
+              </ul>
+          </nav>
+          <div class="z-10">
+              <select name="select" id="select" class="font-bold bg-transparent">
+              <option value="DEUTSCH">DE</option>
+              <option value="ENGLISH">EN</option>
+              </select>
+          </div>
+          </div>
+          <!-- bottom div -->
+          <div>
+          <nav>
+              <ul
+              class="capitalize flex flex-row lap gap-[80px] text-[26px] font-bold"
+              >
+              <li>
+                  <a href="#" class="hover:text-blue">Synthetische Kraftstoffe</a>
+              </li>
+              <li>
+                  <a href="#" class="hover:text-blue">Power-to-liquid Anlagen</a>
+              </li>
+              <li>
+                  <a href="#" class="hover:text-blue">Synthetische Chemikalien</a>
+              </li>
+              </ul>
+          </nav>
+          </div>
+      </div>
+      <!-- hamburger Icon -->
+      <button
+          id="menu-btn"
+          onclick="menuHandler()"
+          class="lg:hidden z-10 flex ml-auto mr-4 mt-10"
+      >
+          <img src="../assets/icons/burger.svg" alt="" />
+      </button>
+      <!-- Hamburger Menu -->
+      <div class="lg:hidden z-10">
+          <div
+          id="menu"
+          class="absolute flex-col w-screen h-screen hidden left-0 bg-black text-white"
+          >
+          <!-- top div -->
+          <div class="mt-[42px] capitalize flex justify-between px-5">
+              <!-- left side -->
+              <div
+              class="text-[16px] z-10 flex space-x-[20px] text-white font-bold"
+              >
+              <a
+                  href="#"
+                  class="de pr-[16px] border-r-2 border-solid border-blue border-opacity-30 cursor-pointer"
+                  onclick="deutschHandler()"
+                  >Deutsch</a
+              >
+              <a
+                  href="#"
+                  class="en text-[#8D8F96] cursor-pointer"
+                  onclick="englischHandler()"
+                  >Englisch</a
+              >
+              </div>
+              <!-- right side -->
+              <button onclick="menuCloser()" class="close z-10">
+              <img src="../assets/icons/close-1.svg" alt="" />
+              </button>
+          </div>
+          <!-- middle nav -->
+
+          <div class="w-full flex items-center justify-center">
+              <nav class="w-11/12 text-left mt-[70px] font-bold">
+              <ul class="text-[22px]">
+                  <li
+                  class="py-4 border-b-[1px] border-t-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  Synthetische Kraftstoffe
+                  </li>
+                  <li
+                  class="py-4 border-b-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  Power-to-liquid Anlagen
+                  </li>
+                  <li
+                  class="py-4 border-b-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  Synthetische Chemikalien
+                  </li>
+              </ul>
+              </nav>
+          </div>
+          <!-- bottom nav -->
+          <div class="w-full flex justify-between">
+              <nav>
+              <ul
+                  class="text-[16px] space-y-[30px] mt-[36px] tablet mobile px-5 font-bold"
+              >
+                  <li><a href="#">Knowledge Base</a></li>
+                  <li><a href="#">Investoren</a></li>
+                  <li class="flex">
+                  <a href="#">Über uns</a>
+                  </li>
+
+                  <li><a href="#">Karriere</a></li>
+              </ul>
+              </nav>
+              <button
+              onclick="secondMenu()"
+              class="arrow mobile-arrow px-5 mt-[100px]"
+              >
+              <img src="../assets/icons/chevron-right.svg" alt="right" />
+              </button>
+          </div>
+          </div>
+          <!-- second menu -->
+          <div
+          id="second"
+          class="absolute flex-col w-screen h-screen left-0 hidden bg-black text-white"
+          >
+          <!-- top div -->
+
+          <!-- main div -->
+          <div class="w-full flex items-center justify-center">
+              <nav class="w-11/12 text-left mt-[10px]">
+              <ul class="mt-[92px] text-[22px] font-bold">
+                  <li
+                  class="text-[16px] py-3 border-b-[1px] border-solid border-blue border-opacity-30 flex space-x-2"
+                  >
+                  <div onclick="closeSecond()">
+                      <button>
+                      <img
+                          src="../assets/icons/chevron-left.svg"
+                          alt="left-arrow"
+                          class="pr-1"
+                      />
+                      </button>
+                      <a href="#">Zurück</a>
+                  </div>
+                  </li>
+                  <li
+                  class="py-3 border-b-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  <a href="#">Übersicht</a>
+                  </li>
+                  <li
+                  class="py-3 border-b-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  <a href="#">Unternehmensziele</a>
+                  </li>
+                  <li
+                  class="py-3 border-b-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  <a href="#">Impact</a>
+                  </li>
+                  <li
+                  class="py-3 border-b-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  <a href="#">Pioniere</a>
+                  </li>
+                  <li
+                  class="py-3 border-b-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  <a href="#">Forschung & Entwicklung</a>
+                  </li>
+                  <li
+                  class="py-3 border-b-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  <a href="#">Unternehmen</a>
+                  </li>
+                  <li
+                  class="py-3 border-b-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  <a href="#">Standorte</a>
+                  </li>
+                  <li
+                  class="py-3 border-b-[1px] border-solid border-blue border-opacity-30"
+                  >
+                  <a href="#">Awards</a>
+                  </li>
+              </ul>
+              </nav>
+          </div>
+          </div>
+      </div>
+  </header>
+  <!-- end header -->
+  <main id="slider-wave">
+      <!-- start slider -->
+  <section class="w-full relative top-[-117px] z-[1]">
+    <div class="swiper product-carousel w-full lg:min-h-[1280px]">
+      <div class="swiper-wrapper">
+        <!-- slide  295px (150px - mobile) is header height + margin-top-->
+        <div class="swiper-slide pt-[150px] lg:pt-[225px] 2xl:pt-[295px]">
+          <div class="flex flex-col lg:block font-bold text-white lg:w-full max-w-[1370px] mx-auto px-[20px] lg:pr-0 lg:pl-[20px]">
+            <h1 class="text-[28px] lg:text-[54px] 2xl:text-[70px] lg:leading-tight text-white">
+              Transportwege auf dem <span class="block">Meer werden CO₂ neutral</span>
+            </h1>
+            <div class="text-xl leading-relaxed lg:text-[28px] mt-10">Und noch ein Satz wie und warum wir das machen
+            </div>
+            <button class="mt-14 px-11 py-4 rounded bg-blue text-base font-bold text-white uppercase">CO₂ neutral werden
+            </button>
+          </div>
+          <div class="mt-8 lg:absolute lg:mt-0 top-0 right-[-10%] 2xl:right-0 z-[-5]">
+            <img src="../assets/slider/1.png" alt="">
+          </div>
+        </div>
+        <!-- slide  295px (150px - mobile) is header height + margin-top-->
+        <div class="swiper-slide pt-[150px] lg:pt-[225px] 2xl:pt-[295px]">
+          <div class="flex flex-col lg:block font-bold text-white lg:w-full max-w-[1370px] mx-auto px-[20px] lg:pr-0 lg:pl-[20px]">
+            <h1 class="text-[28px] lg:text-[54px] 2xl:text-[70px] lg:leading-tight text-white">
+              Neue Flüge mit <span class="block">alten Emissionen</span>
+            </h1>
+            <div class="text-xl leading-relaxed lg:text-[28px] mt-10">Und noch ein Satz wie und warum wir das machen
+            </div>
+            <button class="mt-14 px-11 py-4 rounded bg-blue text-base font-bold text-white uppercase">CO₂ neutral werden
+            </button>
+          </div>
+
+          <div class="mt-8 lg:absolute lg:mt-0 top-[44%] right-0 lg:w-[70%] z-[-5]">
+            <img src="../assets/slider/2.png" alt="">
+          </div>
+        </div>
+        <!-- slide  295px (150px - mobile) is header height + margin-top-->
+        <div class="swiper-slide pt-[150px] lg:pt-[225px] 2xl:pt-[295px]">
+          <div class="flex flex-col lg:block font-bold text-white lg:w-full max-w-[1370px] mx-auto px-[20px] lg:pr-0 lg:pl-[20px]">
+            <h1 class="text-[28px] lg:text-[54px] 2xl:text-[70px] lg:leading-tight text-white">
+              Mobilität erhalten, dort <span class="block">wo Elektromobilität endet</h1>
+            </h1>
+            <div class="text-xl leading-relaxed lg:text-[28px] mt-10">Und noch ein Satz wie und warum wir das machen
+            </div>
+            <button class="mt-14 px-11 py-4 rounded bg-blue text-base font-bold text-white uppercase">CO₂ neutral werden
+            </button>
+          </div>
+
+          <div class="mt-8 lg:absolute lg:mt-0 lg:top-[15%] 2xl:top-[30%] right-0 z-[-5]">
+            <img src="../assets/slider/3.png" alt="">
+          </div>
+        </div>
+        <!-- slide  295px (150px - mobile) is header height + margin-top-->
+        <div class="swiper-slide pt-[150px] lg:pt-[225px] 2xl:pt-[295px]">
+          <div class="flex flex-col lg:block font-bold text-white lg:w-full max-w-[1370px] mx-auto px-[20px] lg:pr-0 lg:pl-[20px]">
+            <h1 class="text-[28px] lg:text-[54px] 2xl:text-[70px] lg:leading-tight text-white">
+              Mobilität erhalten, dort <span class="block">wo Elektromobilität endet</h1>
+            </h1>
+            <div class="text-xl leading-relaxed lg:text-[28px] mt-10">Und noch ein Satz wie und warum wir das machen
+            </div>
+            <button class="mt-14 px-11 py-4 rounded bg-blue text-base font-bold text-white uppercase">CO₂ neutral werden
+            </button>
+          </div>
+
+          <div class="mt-8 lg:absolute lg:mt-0 lg:top-[15%] 2xl:top-[30%] right-0 z-[-5]">
+            <img src="../assets/slider/4.png" alt="">
+          </div>
+        </div>
+      </div>
+      <!-- If we need navigation buttons -->
+      <div class="flex items-center justify-center relative top-[-3em] lg:mt-[10%]  z-[20]">
+        <div class="swiper-button-prev-hc ">
+          <img class="h-4 w-4" src="../assets/icons/chevron-left.svg">
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination static"></div>
+        <div class="swiper-button-next-hc">
+          <img class="h-4 w-4" src="../assets/icons/chevron-right.svg">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end slider -->
+
+  <section class="w-full max-w-[375px] lg:max-w-[1370px] mx-auto px-[20px] lg:mb-[180px] mb-[150px] lg:mt-[-180px]">
+    <div class="flex flex-col lg:flex-row gap-20 lg:gap-[35px]">
+      <div class="w-full lg:w-[306px] h-[396px]">
+        <img src="../assets/icons/tree-1.svg" class="w-20 h-28 mx-auto" alt="" />
+        <h3 class="text-white text-xl tracking-[0px] text-left leading-[30px] mt-[73px] font-PtSans font-bold">
+          CO₂ Neutralität
+        </h3>
+        <p class="mt-[21px] text-white text-lg font-PtSans font-normal tracking-[0px] text-left leading-8">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+          penatibus et magnis dis parturient montes.
+        </p>
+      </div>
+      <div class="w-full lg:w-[306px] h-[396px]">
+        <img src="../assets/icons/fuel-1.svg" class="w-20 h-28 mx-auto" alt="" />
+        <h3 class="text-white text-xl tracking-[0px] text-left leading-[30px] mt-[73px] font-PtSans font-bold">
+          Versorgungssicherhei
+        </h3>
+        <p class="mt-[21px] text-white text-lg font-PtSans font-normal tracking-[0px] text-left leading-8">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+          penatibus et magnis dis parturient montes.
+        </p>
+      </div>
+      <div class="w-full lg:w-[306px] h-[396px]">
+        <img src="../assets/icons/price-1.svg" class="w-20 h-28 mx-auto" alt="" />
+        <h3 class="text-white text-xl tracking-[0px] text-left leading-[30px] mt-[73px] font-PtSans font-bold">
+          Preisstabilität
+        </h3>
+        <p class="mt-[21px] text-white text-lg font-PtSans font-normal tracking-[0px] text-left leading-8">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+          penatibus et magnis dis parturient montes.
+        </p>
+      </div>
+      <div class="w-full lg:w-[306px] h-[396px]">
+        <img src="../assets/icons/quality-1.svg" class="w-20 h-28 mx-auto" alt="" />
+        <h3 class="text-white text-xl tracking-[0px] text-left leading-[30px] mt-[73px] font-PtSans font-bold">
+          Qualitätssicherheit
+        </h3>
+        <p class="mt-[21px] text-white text-lg font-PtSans font-normal tracking-[0px] text-left leading-8">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+          penatibus et magnis dis parturient montes.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="w-full max-w-[375px] lg:max-w-[1370px] mx-auto px-[20px] flex flex-col mt-[179px]">
+    <h1
+      class="text-white text-2xl lg:text-[50px] font-PtSans font-bold tracking-[0px] text-left leading-8 lg:leading-[62px] mr-auto ml-auto">
+      Wie Sie zu Ihren E-Fuels kommen
+    </h1>
+    <div class="w-[335px] lg:w-full lg:max-w-[1370px] mx-auto flex flex-col lg:flex-row gap-9 mt-[76px] lg:mt-[91px]">
+      <div class="w-[335px] lg:w-[419px] h-[237.61px]">
+        <img src="../assets/icons/number1-1.svg" alt="" class="mr-auto ml-auto h-[86px]" />
+        <p
+          class="text-white text-base lg:text-lg font-PtSans font-normal tracking-[0px] text-left leading-[30px] lg:leading-8 mt-[55px]">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+          penatibus et magnis.
+        </p>
+      </div>
+
+      <div class="w-[335px] lg:w-[419px] h-[237.61px] mt-[90px] lg:mt-0">
+        <img src="../assets/icons/number2-1.svg" alt="" class="mr-auto ml-auto h-[86px]" />
+        <p class="text-white text-lg font-PtSans font-normal tracking-[0px] text-left leading-8 mt-[55px]">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+          penatibus et magnis.
+        </p>
+      </div>
+
+      <div class="w-[335px] lg:w-[419px] h-[237.61px] mt-[90px] lg:mt-0">
+        <img src="../assets/icons/number3-1.svg" alt="" class="mr-auto ml-auto h-[86px]" />
+        <p class="text-white text-lg font-PtSans font-normal tracking-[0px] text-left leading-8 mt-[55px]">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+          penatibus et magnis.
+        </p>
+      </div>
+    </div>
+    <button
+      class="w-full lg:w-[420px] h-[50px] lg:h-[50px] rounded-[4px] bg-blue ml-auto mr-auto mt-[103px] flex justify-center items-center hover:bg-lightBlue cursor-pointer">
+      <p class="text-white text-base font-PtSans font-bold tracking-[0px] text-left uppercase">
+        JetztCO₂ neutral werden
+      </p>
+    </button>
+  </section>
+  
+  <div class="decor-oval absolute top-[230px] lg:w-[394px] lg:h-[786px] 2xl:w-[672px] 2xl:h-[1572px] invisible lg:visible z-[-9]">
+    <img src="../assets/Oval-left.svg" alt="">
+  </div>
+  <div class="decor-oval-2 absolute top-[779px] right-0 lg:w-[394px] lg:h-[786px] 2xl:w-[672px] 2xl:h-[1572px] invisible lg:visible z-[-9]">
+    <img src="../assets/Oval-right.svg" alt="">
+  </div>
+
+   <!-- start blue gradient block -->
+   <div class="font-PtSans bg-gradient-to-r from-[#469FD2] to-[#336789] lg:px-[295px] lg:pt-[113px] lg:pb-[118px] pl-5 pr-5 pt-[43px] pb-[73px] mt-[106px]">
+    <h3 class="font-bold lg:text-[70px] lg:leading-[90px] text-2xl text-white w-[100px] lg:w-full">
+      Kontaktieren Sie uns
+    </h3>
+    <div class="lg:mt-[64px] mt-16">
+      <p class="lg:leading-[38px] lg:text-[30px] text-[24px] leading-8 text-white font-bold">
+        Dieses Thema interessiert mich
+      </p>
+
+      <div class="flex lg:flex-row flex-wrap text-base lg:text-xl text-white lg:gap-[20px] gap-[15px] mt-[29px] lg:mt-[37px] font-PtSans">
+        <a href="" class="border-2 border-solid rounded border-green leading-5 lg:px-[40px] px-[21px] lg:pt-[5px] lg:pb-[11px] pt-[7px] pb-[9px]">Kosten</a>
+        <a href="" class="border-2 border-solid rounded border-green leading-5 lg:px-[40px] px-[21px] lg:pt-[5px] lg:pb-[11px] pt-[7px] pb-[9px]">Jobs</a>
+        
+        <a href="" class="border-2 border-solid rounded border-green leading-5 lg:px-[40px] px-[21px] lg:pt-[5px] lg:pb-[11px] pt-[7px] pb-[9px]">Lieferzeiten</a>
+        <a href="" class="border-2 border-solid rounded border-green leading-5 lg:px-[40px] px-[21px] lg:pt-[5px] lg:pb-[11px] pt-[7px] pb-[9px]"> Token</a>
+        <a href="" class="border-2 border-solid rounded border-green leading-5 lg:px-[40px] px-[21px] lg:pt-[5px] lg:pb-[11px] pt-[7px] pb-[9px]">Mengen</a>
+      </div>
+    </div>
+  </div>
+  <!-- end of blue gradient block -->
+  </main>
+
+
+  <!-- start footer -->
+  <footer class="bg-[#1C202D] lg:h-[570px] overflow-hidden bg-[url('../assets/swirl.svg')] lg:bg-right-top bg-center">
+
+    <div class="w-full max-w-[375px] lg:max-w-[1370px] px-[20px] py-[80px] mx-auto">
+      <img src="../assets/logos/ineratec-icon-negativ-4.svg" alt="" class="w-[91px] h-[40px]" />
+
+      <div class="grid grid-cols-1 lg:gap-8 lg:grid-cols-4 mt-[63px] gap-10">
+        <div>
+          <h2 class="mb-[21px] text-sm text-green uppercase font-PtSans font-bold">
+            ADRESSE
+          </h2>
+          <ul class="text-[#fff] text-base font-PtSans font-normal">
+            <li class="mb-4">
+              <p class="">INERATEC Gmbh</p>
+            </li>
+            <li class="mb-4">
+              <p class="">Siemensalle 84</p>
+            </li>
+            <li class="mb-4">
+              <p class="">76187 karlsruhe</p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-[21px] text-sm text-green uppercase font-PtSans font-bold">
+            KONTAKT
+          </h2>
+          <ul class="text-[#fff] text-base font-PtSans font-normal">
+            <li class="mb-4">
+              <a href="#" class="hover:underline">
+                <span>T:</span><span class="ml-5">+49721 86484460</span>
+              </a>
+            </li>
+            <li class="mb-4">
+              <a href="mailto:info@ineratec.de">
+                <span>E:</span><span class="ml-5 underline">info@ineratec.de</span>
+              </a>
+            </li>
+            <li class="mb-4">
+              <p>
+                Kontaktformluar
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-[21px] text-sm text-green uppercase font-PtSans font-bold">
+            produkte
+          </h2>
+          <nav>
+            <ul class="text-white text-base font-PtSans font-normal">
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Synthetische Kraftstoffe</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Power-to-liquid Anlagen</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Synthetische Chemikalien</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div>
+          <h2 class="mb-[21px] text-sm text-green uppercase font-PtSans font-bold">
+            informationen
+          </h2>
+          <nav>
+            <ul class="text-[#fff] text-base font-PtSans font-normal">
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Knowledge Base</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Investoren</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Uber uns</a>
+              </li>
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Karriere</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div>
+        <hr class=" border-[#4BAEE5] opacity-30 mt-[37px]">
+
+      </div>
+      <div class="lg:flex mt-4  lg:items-center lg:justify-between">
+        <nav>
+          <ul class="flex lg:justify-center space-x-6">
+            <li>
+              <a href="#" class="">
+                <img src="../assets/icons/facebook.svg" class="w-[24px] h-[24px]" alt="facebook logo">
+
+              </a>
+            </li>
+            <li>
+              <a href="#" class="">
+                <img src="../assets/icons/twitter.svg" class="w-[24px] h-[24px]" alt="twitter logo">
+              </a>
+            </li>
+            <li>
+              <a href="#" class="">
+                <img src="../assets/icons/instagram-filled.svg" class="w-[24px] h-[24px]" alt="instagram logo">
+              </a>
+            </li>
+            <li>
+              <a href="#" class="">
+                <img src="../assets/icons/youtube.svg" class="w-[24px] h-[24px]" alt="youtube logo">
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <div class="text-white lg:text-center mt-[34px] lg:mt-0 font-PtSans font-normal">
+          <nav>
+            <ul class="flex items-center gap-[40px]">
+              <li>
+                <a href="#" class="hover:underline">Datenschutz</a>
+              </li>
+              <li>
+                <a href="#" class="hover:underline">Impressum</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+  <!-- end footer -->
+  
+    <script src="../js/header.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="../js/product-page-slider.js"></script>
+</body>
+
+</html>
